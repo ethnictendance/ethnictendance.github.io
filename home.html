@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethnic Tendance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1f1f1f;
+      color: white;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20%;
+      height: 100vh;
+      background-color: #3d3d3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+    }
+
+    .sidebar img {
+      width: 100%;           /* Makes it expand to sidebar width */
+      max-width: 250px;      /* Increase this value to enlarge */
+      height: auto;          /* Maintain aspect ratio */
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sidebar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .sidebar-icons {
+      margin-top: auto;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-icons i {
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 200px;
+      background-image: url('images/background.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .main h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .main h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .main button {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .main button:hover {
+      background-color: white;
+      color: #1f1f1f;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem 0;
+      }
+
+      .main {
+        margin-left: 0;
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="images/logo.png" alt="Ethnic Tendance logo">
+    <nav>
+      <a href="home.html" style="font-weight: bold;">Home</a>
+      <a href="templates/about.html">About</a>
+      <a href="templates/contact.html">Contact</a>
+    </nav>
+    <div class="sidebar-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </div>
+
+  <div class="main">
+    <h1>ETHNIC TENDANCE</h1>
+    <h2>Where ethnicity meets elegance</h2>
+    <button>ORDER ONLINE</button>
+  </div>
+</body>
+</html>

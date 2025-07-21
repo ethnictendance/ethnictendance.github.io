@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethnic Tendance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #3d3d3d;
+      color: white;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20%;
+      height: 100vh;
+      background-color: #3d3d3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+    }
+
+    .sidebar img {
+      width: 100%;           /* Makes it expand to sidebar width */
+      max-width: 250px;      /* Increase this value to enlarge */
+      height: auto;          /* Maintain aspect ratio */
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sidebar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .sidebar-icons {
+      margin-top: auto;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-icons i {
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 200px;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .main-content {
+      display: flex;
+      gap: 3rem;
+      max-width: 1200px;
+      width: 100%;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .page-heading {
+      width: 100%;
+      text-align: center;
+      margin-bottom: -7rem;
+      font-size: 2rem;
+      font-family: 'Flamenco';
+      color: #d5d0c0;
+    }
+
+    .left-column {
+      text-align: center;
+      flex: 1 1 300px;
+    }
+
+    .left-column img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .tagline {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #00bfff;
+      font-style: italic;
+    }
+
+    .right-column {
+      flex: 1 1 300px;
+      text-align: center;
+      color: #d5d0c0;
+    }
+
+    .right-column h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .right-column h2 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    .right-column p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .right-column h2 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #01a5d2 0%, #e8419d 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text; /* For Firefox */
+      color: transparent;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem 0;
+        position: relative;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+
+      .main-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .left-column, .right-column {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <img src="../images/logo.png" alt="Ethnic Tendance logo">
+    <nav>
+      <a href="../home.html">Home</a>
+      <a href="./about.html" style="font-weight: bold;">About</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+    <div class="sidebar-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="main-content">
+      <div class="page-heading"><h3>About Ethnic Tendance</h3></div>
+      <div class="left-column">
+        <img src="../images/logo.png" alt="Ethnic Tendance Logo">
+        <!-- <h3 class="tagline">Where ethnicity meets elegance</h3> -->
+      </div>
+      <div class="right-column">
+        <h2>Vibrant Online Destination</h2>
+        <p>
+          Welcome to <em><strong>Ethnic Tendance</strong></em>! Your vibrant online destination for fashion accessories and cultural treasures. We believe style is more than fashion; it’s a celebration of identity, heritage, and everyday beauty.
+        </p>
+        <p>
+          At Ethnic Tendance, we curate an eclectic collection of products designed to inspire and delight. From charming baby apparel and stylish clothing, to unique fashion ornaments, home aesthetics, and culturally inspired items, our store is a tapestry of tradition and modern flair.
+        </p>
+        <p>
+          Each piece is thoughtfully selected to bring color, elegance, and cultural richness into your life. Whether you’re looking to elevate your wardrobe, adorn your home, or find the perfect gift, <strong>Ethnic Tendance</strong> offers quality, creativity, and a touch of global artistry.
+        </p>
+        <p>
+          Join us on this journey and discover how tradition and trend can harmoniously coexist. Explore, express, and embrace your unique Tendance.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
