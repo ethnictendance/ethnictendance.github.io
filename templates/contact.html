@@ -302,7 +302,7 @@
         <!-- Right Column -->
         <div class="right-column">
           <p>Let us know how we can assist you!</p>
-          <form action="https://formspree.io/f/xdkdapgq" method="POST">
+          <form id="contact-form">
             <label for="name">Name *</label>
             <input type="text" id="name" name="name" required placeholder="Your Name">
 
@@ -323,6 +323,33 @@
 </html>
 
 <script>
+
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  const response = await fetch('https://formspree.io/f/xdkdapgq', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    alert('Message sent successfully!');
+    form.reset();
+  } else {
+    alert('Something went wrong. Please try again later.');
+  }
+});
+
   function checkStoreStatus() {
     const now = new Date();
     const day = now.getDay(); // Sunday=0, Monday=1,...Saturday=6
