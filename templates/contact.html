@@ -11,6 +11,13 @@
         integrity="sha512-papmH2eYue6nbFh7FlNtbDIlRMz4L9aMYYBu5k5N3TwzN8raCln64kGStwKrEx3U8k0BIMmTMsGgr5mOTkgF8g==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("8r5oUGak-wPyh4nw7"); // Replace with your actual public key
+      })();
+    </script>
+
   <style>
     body {
       margin: 0;
@@ -383,4 +390,19 @@
 
   // Optional: Update status every minute
   setInterval(checkStoreStatus, 60000);
+</script>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_ni4qh5j', 'template_epw4l7n', this)
+      .then(function(response) {
+         alert("Message sent successfully!");
+         document.getElementById('contact-form').reset(); // Clear form
+      }, function(error) {
+         alert("Failed to send message. Please try again.");
+         console.log('FAILED...', error);
+      });
+  });
 </script>
