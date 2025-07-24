@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products - Ethnic Tendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #3d3d3d;
+      color: white;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20%;
+      height: 100vh;
+      background-color: #3d3d3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+    }
+
+    .sidebar img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sidebar nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .sidebar-icons {
+      margin-top: auto;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-icons i {
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .main {
+      margin-left: 20%;
+      padding: 2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background-color: #2e2e2e;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h3 {
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.25rem;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      color: #cfcfcf;
+    }
+
+    .price {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .sale {
+      color: #ff5e5e;
+      text-decoration: line-through;
+      margin-right: 0.5rem;
+      font-weight: normal;
+    }
+
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: white;
+      color: #1f1f1f;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .popup-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .popup-content ul li {
+      margin: 1rem 0;
+    }
+
+    .popup-content a {
+      color: #1f1f1f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Image popup styles */
+    #imagePopup .popup-content {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    #popupImage {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 1rem 0;
+        position: static;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="images/logo.png" alt="Ethnic Tendance logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="templates/about.html">About</a>
+      <a href="templates/contact.html">Contact</a>
+      <a href="products.html" style="font-weight: bold;">Products</a>
+    </nav>
+    <div class="sidebar-icons">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-user"></i>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1 style="text-align:left; font-family: 'Flamenco';">Our Products</h1>
+    <div class="products-grid" id="productsContainer">
+      <!-- Products go here -->
+    </div>
+  </div>
+
+  <!-- Order Popup -->
+  <div id="orderPopup" class="popup-overlay">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Order on:</h2>
+      <ul id="orderLinksList"></ul>
+    </div>
+  </div>
+
+  <!-- Image Viewer Popup -->
+  <div id="imagePopup" class="popup-overlay" onclick="closeImagePopup()">
+    <div class="popup-content">
+      <img id="popupImage" src="" alt="Product">
+    </div>
+  </div>
+
+  <script>
+    let allProducts = [];
+
+    async function loadCSV(file) {
+      const response = await fetch(file);
+      const data = await response.text();
+      const rows = data.trim().split('\n');
+      const headers = rows.shift().split(',');
+
+      return rows.map(row => {
+        const values = row.split(',');
+        return headers.reduce((obj, header, index) => {
+          obj[header.trim()] = values[index] ? values[index].trim() : '';
+          return obj;
+        }, {});
+      });
+    }
+
+    function renderProducts(products) {
+      const container = document.getElementById('productsContainer');
+      container.innerHTML = '';
+
+      products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.onclick = () => showImagePopup(product.image);
+
+        let saleSection = '';
+        if (product.price !== 'CS') {
+          saleSection = product.sale_price && product.sale_price !== ''
+            ? `<div class="price"><span class="sale">$${product.price}</span> $${product.sale_price}</div>`
+            : `<div class="price">$${product.price}</div>`;
+        }
+
+        let actionSection = '';
+        if (product.price === 'CS') {
+          actionSection = `<div style="margin-top: 1rem; color: #ffcc00; font-weight: bold;">Coming Soon!</div>`;
+        } else {
+          actionSection = `<button class="order-btn" onclick="event.stopPropagation(); showOrderLinks(${index})">Order Now</button>`;
+        }
+
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          ${saleSection}
+          ${actionSection}
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function showOrderLinks(productIndex) {
+      const product = allProducts[productIndex];
+      const linksList = document.getElementById('orderLinksList');
+      linksList.innerHTML = '';
+
+      if (product.walmart)
+        linksList.innerHTML += `<li><a href="${product.walmart}" target="_blank">Walmart</a></li>`;
+      if (product.target)
+        linksList.innerHTML += `<li><a href="${product.target}" target="_blank">Target</a></li>`;
+      if (product.amazon)
+        linksList.innerHTML += `<li><a href="${product.amazon}" target="_blank">Amazon</a></li>`;
+
+      if (!product.walmart && !product.target && !product.amazon)
+        linksList.innerHTML = `<li><em>Not available online</em></li>`;
+
+      document.getElementById('orderPopup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('orderPopup').style.display = 'none';
+    }
+
+    function showImagePopup(imageUrl) {
+      const popup = document.getElementById('imagePopup');
+      const img = document.getElementById('popupImage');
+      img.src = imageUrl;
+      popup.style.display = 'flex';
+    }
+
+    function closeImagePopup() {
+      document.getElementById('imagePopup').style.display = 'none';
+    }
+
+    loadCSV('data/products.csv')
+      .then(products => {
+        allProducts = products;
+        renderProducts(products);
+      })
+      .catch(err => console.error('Error loading products:', err));
+  </script>
+</body>
+</html>
